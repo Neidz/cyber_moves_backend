@@ -1,20 +1,16 @@
-const router = require("express").Router();
+import express from "express";
+const router = express.Router();
 import { Request, Response } from "express";
-const user = require("../../models/user");
-const bcrypt = require("bcrypt");
+import user from "../../models/user";
+import bcrypt from "bcrypt";
 
 router.post("/register", async (req: Request, res: Response) => {
     const saltRounds = 10;
-    const newUser = new user({
+    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+    const newUser = await new user({
         username: req.body.username,
         email: req.body.email,
-        password: bcrypt.hash(req.body.password, saltRounds, (err: unknown, hash: string) => {
-            if (hash) {
-                return hash;
-            } else {
-                console.log(err);
-            }
-        }),
+        password: hashedPassword,
     });
     try {
         const savedUser = await newUser.save();
@@ -25,4 +21,4 @@ router.post("/register", async (req: Request, res: Response) => {
     }
 });
 
-module.exports = router;
+export default router;

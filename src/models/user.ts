@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema(
     {
@@ -6,10 +6,9 @@ const UserSchema = new mongoose.Schema(
         email: { type: String, required: true, unique: true },
         password: { type: String, required: true },
         isAdmin: { type: Boolean, required: false, default: false },
+        isHacker: { type: Boolean, required: false, default: false },
     },
-    { timestamp: true }
+    { timestamps: true }
 );
 
-// for typescript lint on require
-export {};
-module.exports = mongoose.model("user", UserSchema);
+export default mongoose.model("user", UserSchema);
