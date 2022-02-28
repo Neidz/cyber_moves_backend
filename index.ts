@@ -4,9 +4,9 @@ import express from "express";
 const app = express();
 import mongoose from "mongoose";
 import cors from "cors";
-
 import registerRoute from "./src/routes/authentication/register";
 import loginRoute from "./src/routes/authentication/login";
+import newCommand from "./src/routes/commands/newCommand";
 
 if (process.env.MONGODB_URL !== undefined) {
     mongoose
@@ -26,6 +26,8 @@ app.use(cors());
 // endpoints
 app.use("/api/auth", registerRoute);
 app.use("/api/auth", loginRoute);
+
+app.use("/api/commands", newCommand);
 
 app.listen(process.env.PORT || 8080, () => {
     console.log("running");
