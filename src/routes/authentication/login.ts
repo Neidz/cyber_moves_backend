@@ -20,6 +20,7 @@ router.post("/login", async (req: Request, res: Response) => {
                     const accessToken = jwt.sign(
                         {
                             id: userLogin.id,
+                            username: userLogin.username,
                             isAdmin: userLogin.isAdmin,
                         },
                         process.env.JWT_KEY,

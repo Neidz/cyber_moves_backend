@@ -7,6 +7,7 @@ import cors from "cors";
 import registerRoute from "./src/routes/authentication/register";
 import loginRoute from "./src/routes/authentication/login";
 import newCommand from "./src/routes/commands/newCommand";
+import getUserCommands from "./src/routes/commands/getUserCommands";
 
 if (process.env.MONGODB_URL !== undefined) {
     mongoose
@@ -28,6 +29,7 @@ app.use("/api/auth", registerRoute);
 app.use("/api/auth", loginRoute);
 
 app.use("/api/commands", newCommand);
+app.use("/api/commands", getUserCommands);
 
 app.listen(process.env.PORT || 8080, () => {
     console.log("running");
