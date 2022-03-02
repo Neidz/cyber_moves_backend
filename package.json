@@ -2,11 +2,11 @@
   "name": "cybermoves_backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.ts",
-    "build": "tsc",
+    "start": "node index.js",
+    "build": "tsc -p .",
     "startdev": "nodemon index.ts"
   },
   "keywords": [],
