@@ -6,6 +6,8 @@ const CommandsSchema = new mongoose.Schema(
         username: { type: String, required: true, unique: false },
         commands: { type: [Object], required: true, unique: false },
         category: { type: [String], required: true, unique: false },
+        robotType: { type: String, required: true, unique: false },
+        public: { type: Boolean, required: true, unique: false, default: true },
         likes: { type: Number, required: false, unique: false },
     },
     { timestamps: true }
