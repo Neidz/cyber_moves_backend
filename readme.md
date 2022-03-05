@@ -3,6 +3,10 @@ Backend for website called cybermoves </br>
 Link to website: </br>
 https://cybermoves.netlify.app/</br>
 
-Endpoints: </br>
-currently there's only one public endpoint for fetching commands and it's https://cybermoves.herokuapp.com/api/public/commandByName?name= </br>
-at the end of that endpoint you have to provide name of any command you want! List of commands and their names can be found on website
+Public endpoints: </br>
+
+Get choosen command: </br>
+https://cybermoves.herokuapp.com/api/public/commandByName?name=NAME (replace NAME with name of the command) </br>
+
+Get list of names of currently available commands for choosen type of robot: </br>
+https://cybermoves.herokuapp.com/api/public/allNamesByType?robotType=ROBOTTYPE (replace ROBOTTYPE with type of robot) </br>

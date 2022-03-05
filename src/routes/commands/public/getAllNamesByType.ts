@@ -1,10 +1,9 @@
 import express from "express";
 const router = express.Router();
 import { Request, Response } from "express";
-import command from "../../models/commandModel";
-import { verifyToken } from "../authentication/verifyToken";
+import command from "../../../models/commandModel";
 
-router.get("/", verifyToken, async (req: Request, res: Response) => {
+router.get("/", async (req: Request, res: Response) => {
     const robotType = req.query.robotType;
     try {
         const requestedCommand = await command.find(

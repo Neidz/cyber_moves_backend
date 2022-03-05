@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
 import { Request, Response } from "express";
-import command from "../../models/commandModel";
+import command from "../../../models/commandModel";
 
 router.get("/", async (req: Request, res: Response) => {
     const commandName = req.query.name;
