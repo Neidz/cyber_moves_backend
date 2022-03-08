@@ -22,6 +22,7 @@ router.post("/login", async (req: Request, res: Response) => {
                             id: userLogin.id,
                             username: userLogin.username,
                             isAdmin: userLogin.isAdmin,
+                            isHacker: userLogin.isHacker,
                         },
                         process.env.JWT_KEY,
                         { expiresIn: "7d" }
