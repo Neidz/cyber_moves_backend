@@ -8,7 +8,7 @@ router.get("/", async (req: Request, res: Response) => {
     try {
         const requestedCommand = await command.find(
             {
-                robotType: `${robotType}`,
+                robotType: robotType,
             },
             { name: 1, _id: 0 }
         );

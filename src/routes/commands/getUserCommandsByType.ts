@@ -5,12 +5,12 @@ import command from "../../models/commandModel";
 import { verifyToken } from "../authentication/verifyToken";
 
 router.get("/", verifyToken, async (req: Request, res: Response) => {
-    const userId = req.user.id;
+    const username = req.user.username;
     const robotType = req.query.robotType;
     try {
         const requestedCommand = await command.find({
-            "_id: {}": `${userId}`,
-            robotType: `${robotType}`,
+            username: username,
+            robotType: robotType,
         });
         res.status(200).json(requestedCommand);
     } catch (err) {

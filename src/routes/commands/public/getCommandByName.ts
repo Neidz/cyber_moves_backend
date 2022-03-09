@@ -7,7 +7,7 @@ router.get("/", async (req: Request, res: Response) => {
     const commandName = req.query.name;
     try {
         const requestedCommand = await command.find({
-            name: `${commandName}`,
+            name: commandName,
         });
         res.status(200).json(requestedCommand);
     } catch (err) {
