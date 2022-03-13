@@ -11,6 +11,7 @@ import getUserCommands from "./src/routes/commands/getUserCommands";
 import getCommandByName from "./src/routes/commands/public/getCommandByName";
 import getUserCommandsByType from "./src/routes/commands/getUserCommandsByType";
 import getAllNamesByType from "./src/routes/commands/public/getAllNamesByType";
+import getUserNamesByType from "./src/routes/commands/getUserNamesByType";
 
 if (process.env.MONGODB_URL !== undefined) {
     mongoose
@@ -39,6 +40,7 @@ app.use("/api/public/commandByName", getCommandByName);
 app.use("/api/newCommand", newCommand);
 app.use("/api/userCommands", getUserCommands);
 app.use("/api/userCommandsByType", getUserCommandsByType);
+app.use("/api/userNamesByType", getUserNamesByType);
 
 app.listen(process.env.PORT || 8080, () => {
     console.log("running");
